@@ -1,10 +1,14 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const {check, validationResult } = require('express-validator/check');
 
 const app = express();
 
 //Connect DataBase
 connectDB();
+
+// Init Middelware allows us to get data in request.body
+app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('API Running'));
 
