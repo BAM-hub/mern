@@ -96,7 +96,40 @@ async (req, res) =>{
     console.error(err.message);
     res.status(500).send('server error');
   }
+});
 
+// @route   GET api/profile
+// @desc    CET ALL profileS
+// @access  Prublic
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    res.json(profiles);
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('server error');
+  }
+});
+
+// @route   GET api/profile/user/:user_id
+// @desc    GET profile by user id
+// @access  Prublic
+router.get('/user/:user_id', async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.params.user_id})
+    .populate('user', ['name', 'avatar']);
+
+    if(!profile) return res.status(400).json({ msg: 'there is no profile for this user' });
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'objectId') {
+      return res.status(400).json({ msg: 'there is no profile for this user' });
+    }
+    res.status(500).send('server error');
+  }
 });
 
 module.exports = router;
