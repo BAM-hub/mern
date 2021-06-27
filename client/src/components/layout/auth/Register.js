@@ -13,7 +13,6 @@ const Register = ({ setAlert, register }) => {
     password: '',
     password2: ''
   });
-
   const {name, email, password, password2} = formData;
     
   const onChange = (e) => 
@@ -24,7 +23,7 @@ const Register = ({ setAlert, register }) => {
     if (password !== password2)
       setAlert('passwords dont match', 'danger', 5000);
     else {
-     register({name, email, password});
+      register({name, email, password});
     } 
   } 
 
@@ -88,13 +87,13 @@ return (
   );
 };
 
-Register.prototypes = {
+Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 }
 
 export default connect(
   null,
-  { setAlert }
+  { setAlert, register }
   )
   (Register);
