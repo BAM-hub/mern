@@ -6,7 +6,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = (
   {
-    componenet: Componenet,
+    component: Component,
     auth: {isAuthenticated, loading},
     ...rest 
   }
@@ -14,10 +14,10 @@ const PrivateRoute = (
   <Route 
     {...rest} 
     render={props => 
-      !isAuthenticated && !loading ? (
+      !isAuthenticated && loading ? ( // why loading is true i have to look into it
       <Redirect to='/login' />
       ) : (
-      <Componenet {...props} />
+      <Component {...props} />
       ) 
     }
   />
