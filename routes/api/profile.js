@@ -3,7 +3,7 @@ const router = express.Router();
 const request = require('request');
 const config = require('config');
 const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -43,7 +43,7 @@ router.post('/', [ auth, [
 async (req, res) =>{
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
-    return res.status(404).json({ errors: errors.array() })
+    return res.status(400).json({ errors: errors.array() });
   }
 
   const {
