@@ -26,7 +26,7 @@ const Landing = ({ isAuthenticated }) => {
   );
 }
 
-Landing.PropTypes = {
+Landing.propTypes = {
   isAuthenticated: PropTypes.bool
 };
 
