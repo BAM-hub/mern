@@ -163,5 +163,4 @@ CreateProfile.propTypes = {
 
 export default connect(
   null,
-  { createProfile })
-  (withRouter(CreateProfile));
+  { createProfile })(withRouter(CreateProfile));
