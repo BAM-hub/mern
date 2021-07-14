@@ -12,6 +12,11 @@ const Navbar = (
 ) => {
   const authLinks = (
     <ul>
+       <li>
+          <Link to="/profiles">
+            Developers
+          </Link>
+        </li>
         <li>
           <Link to="/dashboard">
           <i className="fas fa-user"></i>{' '}
@@ -30,9 +35,11 @@ const Navbar = (
 
   const guestLinks = (
     <ul>
-        <li>
-          <Link to="profiles.html">Developers</Link>
-        </li>
+      <li>
+          <Link to="/profiles">
+            Developers
+          </Link>
+      </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
