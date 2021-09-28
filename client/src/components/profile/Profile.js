@@ -7,7 +7,6 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileEducation from './ProfileEducation';
 import ProfileExperience from './ProfileExperience';
-import ProfileGithub from './ProfileGithub';
 import { getProfileById } from '../actions/profile';
 
 const Profile = ({ 
@@ -49,9 +48,6 @@ const Profile = ({
               ))}
             </Fragment>) : (<h4>No Education Credintials</h4>)}
           </div>
-          {profile.githubusername && (
-            <ProfileGithub username={profile.githubusername}/>
-          )}
        </div>
     </Fragment> }
   </Fragment>;
